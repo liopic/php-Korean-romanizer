@@ -1,0 +1,5 @@
+<phpunit bootstrap="tests/bootstrap.php">
+    <testsuite name="php-Korean-romanizer Test Suite">
+        <directory>tests</directory>
+    </testsuite>
+</phpunit>
