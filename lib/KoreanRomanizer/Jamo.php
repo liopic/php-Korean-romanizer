@@ -6,30 +6,19 @@ namespace KoreanRomanizer;
  */
 abstract class Jamo extends UnicodeChar
 {
-    const FIRST_KOREAN_JAMO = 12593; //ㄱ, Unicode 0x3131
-    const LAST_KOREAN_JAMO  = 12643; //ㅣ, Unicode 0x3163
+    /**
+     * Check if the instance's char is among allowed chars
+     * @return bool
+     */
+    protected function isAllowedChar()
+    {
+        $allowed = $this->getAllowedChars();
+        return in_array($this->char, $allowed);
+    }
 
     /**
-     * Create a jamo instance
-     * @param string $letter UTF-8 letter
-     * @throws \KoreanRomanizer\InvalidArgumentException
+     * Returns an array of UTF8 Korean letters that are allowed in Jamo's child class
+     * @return array
      */
-    public function __construct($letter)
-    {
-        parent::__construct($letter);
-        if (!$this->isKoreanJamo()) {
-            throw new InvalidArgumentException(
-                "The parameter of ".__CLASS__." must be an UTF-8 Korean jamo character."
-            );
-        }
-    }
-
-    private function isKoreanJamo()
-    {
-        $dec = $this->getUnicodeIndex();
-        return $dec >= self::FIRST_KOREAN_JAMO
-            && $dec <= self::LAST_KOREAN_JAMO;
-    }
-
-    abstract public function romanize();
+    abstract public function getAllowedChars();
 }

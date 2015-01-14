@@ -6,29 +6,29 @@ namespace KoreanRomanizer;
  */
 class Vowel extends Jamo
 {
-    const FIRST_KOREAN_VOWEL = 12623; //ㅏ, Unicode 0x314f
-    const LAST_KOREAN_VOWEL  = 12643; //ㅣ, Unicode 0x3163
-
     /**
-     * Create a vowel jamo instance
-     * @param string $letter UTF-8 letter
+     * Create a Korean vowel
+     * @param string $letter UTF-8 Korean vowel
      * @throws \KoreanRomanizer\InvalidArgumentException
      */
     public function __construct($letter)
     {
         parent::__construct($letter);
-        if (!$this->isKoreanVowel()) {
+        if (!$this->isAllowedChar()) {
             throw new InvalidArgumentException(
-                "The parameter of ".__CLASS__." must be an UTF-8 Korean vowel character."
+                "The parameter of ".__CLASS__." must be an UTF-8 Korean vowel."
             );
         }
     }
 
-    private function isKoreanVowel()
+    /**
+     * Returns an array of UTF8 Korean letters that are allowed as Korean vowel
+     * @return array
+     */
+    public function getAllowedChars()
     {
-        $dec = $this->getUnicodeIndex();
-        return $dec >= self::FIRST_KOREAN_VOWEL
-            && $dec <= self::LAST_KOREAN_VOWEL;
+        return ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ",
+            "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"];
     }
 
     public function romanize()
