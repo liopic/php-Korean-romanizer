@@ -76,28 +76,24 @@ class Syllabe extends UnicodeChar
         $base = $this->getUnicodeIndex() - self::FIRST_KOREAN_SYLLABE;
 
         //Extract ending consonant
-        $finals = ["", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ",
-            "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ",
-            "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+        $finals = EndConsonant::getAllowedChars();
         $finalC = count($finals);
         $finalIndex = $base % $finalC;
-        $this->endConsonant = new Consonant($finals[$finalIndex]);
+        $this->endConsonant = new EndConsonant($finals[$finalIndex]);
         $base = ($base-$finalIndex) / $finalC;
 
         //Extract vowel
-        $vowels = ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ",
-            "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"];
+        $vowels = Vowel::getAllowedChars();
         $vowelC = count($vowels);
         $vowelIndex = $base % $vowelC;
         $this->vowel = new Vowel($vowels[$vowelIndex]);
         $base = ($base-$vowelIndex) / $vowelC;
 
         //Extract initial consonant
-        $initials = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ",
-            "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
-        $initialC = count($initial);
+        $initials = IniConsonant::getAllowedChars();
+        $initialC = count($initials);
         $initialIndex = $base % $initialC;
-        $this->iniConsonant = new Consonant($initials[$initialIndex]);
+        $this->iniConsonant = new IniConsonant($initials[$initialIndex]);
 
         return true;
     }
