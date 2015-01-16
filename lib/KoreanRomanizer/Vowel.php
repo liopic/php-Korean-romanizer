@@ -18,6 +18,9 @@ class Vowel extends Jamo
 
     public function romanize()
     {
-        return "AAA";
+        $origin = self::getAllowedChars();
+        $romanization = ["a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa",
+            "wae", "oe", "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i"];
+        return $romanization[array_search($this->char, $origin)];
     }
 }

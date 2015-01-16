@@ -4,7 +4,7 @@ namespace KoreanRomanizer;
 /**
  * Jamo (a Korean letter)
  */
-class Jamo extends UnicodeChar
+abstract class Jamo extends UnicodeChar implements Romanize
 {
     /**
      * Create a Jamo instance
@@ -42,4 +42,6 @@ class Jamo extends UnicodeChar
             "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"];
         return array_merge($consonants, $vowels);
     }
+
+    abstract public function romanize();
 }

@@ -18,6 +18,9 @@ class IniConsonant extends Jamo
 
     public function romanize()
     {
-        return "CCC";
+        $origin = self::getAllowedChars();
+        $romanization = ["g", "kk", "n", "d", "tt", "r", "m", "b", "pp", "s",
+            "ss", "", "j", "jj", "ch", "k", "t", "p", "h"];
+        return $romanization[array_search($this->char, $origin)];
     }
 }

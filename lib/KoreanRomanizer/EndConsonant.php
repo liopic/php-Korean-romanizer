@@ -19,6 +19,10 @@ class EndConsonant extends Jamo
 
     public function romanize()
     {
-        return "CCC";
+        $origin = self::getAllowedChars();
+        $romanization = ["", "k", "k", "k", "n", "n", "n", "t", "l", "k",
+            "m", "l", "l", "l", "l", "l", "m", "p", "p", "t",
+            "t", "ng", "t", "t", "k", "t", "p", "t"];
+        return $romanization[array_search($this->char, $origin)];
     }
 }

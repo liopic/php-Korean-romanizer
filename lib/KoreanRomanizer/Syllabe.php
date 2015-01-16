@@ -39,7 +39,9 @@ class Syllabe extends UnicodeChar
         parent::__construct($s);
         $this->char = $s;
         $this->isKoreanFlag = $this->isKoreanSyllabe();
-        $this->splitJamo();
+        if ($this->isKoreanFlag) {
+            $this->splitJamo();
+        }
     }
 
     /**
@@ -100,39 +102,12 @@ class Syllabe extends UnicodeChar
 
     public function romanize()
     {
-        //initial consonant romanization
-        // ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ",
-        //  "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
-        $initial = ["g", "kk", "n", "d", "tt", "r", "m", "b", "pp", "s",
-            "ss", "", "j", "jj", "ch", "k", "t", "p", "h"
-        ];
-        $initialC = count($initial);
-
-        //vowels romanization
-        // ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ",
-        //  "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"]
-        $vowel = ["a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa",
-            "wae", "oe", "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i"
-        ];
-        $vowelC = count($vowel);
-
-        //final consonant romanization
-        // ["", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ",
-        //  "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ",
-        //  "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
-        $final = ["", "k", "k", "k", "n", "n", "n", "t", "l", "k",
-            "m", "l", "l", "l", "l", "l", "m", "p", "p", "t",
-            "t", "ng", "t", "t", "k", "t", "p", "t"
-        ];
-        $finalC = count($final);
-
-        $base = self::getUnicodeIndex($this->char) - self::FIRST_KOREAN_SYLLABE;
-        $finalIndex = $base % $finalC;
-        $base = ($base-$finalIndex) / $finalC;
-        $vowelIndex = $base % $vowelC;
-        $base = ($base-$vowelIndex) / $vowelC;
-        $initialIndex = $base % $initialC;
-
-        return $initial[$initialIndex] . $vowel[$vowelIndex] . $final[$finalIndex];
+        if (!$this->isKoreanFlag) {
+            return $char;
+        } else {
+            return $this->iniConsonant->romanize()
+                .$this->vowel->romanize()
+                .$this->endConsonant->romanize();
+        }
     }
 }
