@@ -103,7 +103,7 @@ class Syllabe extends UnicodeChar
     public function romanize()
     {
         if (!$this->isKoreanFlag) {
-            return $char;
+            return $this->char;
         } else {
             return $this->iniConsonant->romanize()
                 .$this->vowel->romanize()

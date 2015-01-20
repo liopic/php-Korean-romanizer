@@ -22,7 +22,7 @@ class RomanizerTest extends PHPUnit_Framework_TestCase
             ["사랑해",  "saranghae"],
             ["안녕",    "annyeong"],
             ["고마워요","gomawoyo"],
-            ["커피",    "kopi"]
+            ["커피",    "keopi"]
         ];
 
         //Mixed with non-Korean chars
