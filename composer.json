@@ -1,0 +1,22 @@
+{
+    "name": "liopic/KoreanRomanizer",
+    "description": "Library to romanize Korean in UTF-8 format",
+    "keywords": ["Korean", "romanization", "romanize", "hangul", "hangeul", "한국어", "한글"],
+    "homepage": "https://github.com/liopic/php-Korean-romanizer",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Julio Martinez",
+        "email": "liopic@liopic.com",
+        "homepage": "http://liopic.com"
+    }],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.0.0"
+    },
+    "autoload": {
+        "psr-4": {"KoreanRomanizer\\": "src/KoreanRomanizer"}
+    }
+}
