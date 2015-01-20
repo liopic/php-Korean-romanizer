@@ -1,5 +1,5 @@
 {
-    "name": "liopic/KoreanRomanizer",
+    "name": "liopic/korean-romanizer",
     "description": "Library to romanize Korean in UTF-8 format",
     "keywords": ["Korean", "romanization", "romanize", "hangul", "hangeul", "한국어", "한글"],
     "homepage": "https://github.com/liopic/php-Korean-romanizer",
