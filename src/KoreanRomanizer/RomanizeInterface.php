@@ -1,7 +1,7 @@
 <?php
 namespace KoreanRomanizer;
 
-interface Romanize
+interface RomanizeInterface
 {
     /**
      * Returns the romanization of the object

@@ -4,7 +4,7 @@ namespace KoreanRomanizer;
 /**
  * Syllabe (a Korean block with 2 or more letters)
  */
-class Syllabe extends UnicodeChar
+class Syllabe extends UnicodeChar implements RomanizeInterface
 {
     const FIRST_KOREAN_SYLLABE = 44032; //가, Unicode 0xAC00
     const LAST_KOREAN_SYLLABE  = 55203; //힣, Unicode 0xD7A3

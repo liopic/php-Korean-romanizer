@@ -4,7 +4,7 @@ namespace KoreanRomanizer;
 /**
  * Jamo (a Korean letter)
  */
-abstract class Jamo extends UnicodeChar implements Romanize
+abstract class Jamo extends UnicodeChar implements RomanizeInterface
 {
     /**
      * Create a Jamo instance

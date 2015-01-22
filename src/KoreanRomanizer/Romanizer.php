@@ -1,7 +1,7 @@
 <?php
 namespace KoreanRomanizer;
 
-class Romanizer
+class Romanizer implements RomanizeInterface
 {
     /**
      * @var string sentence
