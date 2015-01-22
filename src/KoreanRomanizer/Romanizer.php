@@ -43,7 +43,6 @@ class Romanizer implements RomanizeInterface
         $rom = [];
         foreach ($syllabes as $syllabe) {
             $rom[] = $syllabe->romanize();
-            //TODO - check exceptions here
         }
 
         return implode($rom);
