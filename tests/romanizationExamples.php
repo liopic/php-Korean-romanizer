@@ -7,7 +7,7 @@
  */
 
 //Basic examples
-$examples[2] = [
+$romanizationExamples[2] = [
     ["구 리",   "Guri"],
     ["설 악",   "Seorak"],
     ["칠 곡",   "Chilgok"],
@@ -16,7 +16,7 @@ $examples[2] = [
     ["대관령",  "Daegwallyeong"]
 ];
 //Examples from "Assimilation of adjacent consonants"
-$examples[311] = [
+$romanizationExamples[311] = [
     ["백마",    "Baengma"],
     ["신문로",  "Sinmunno"],
     ["종로",    "Jongno"],
@@ -25,18 +25,18 @@ $examples[311] = [
     ["신라",    "Silla"]
 ];
 //Examples from "the epenthetic ㄴ and ㄹ"
-$examples[312] = [
+$romanizationExamples[312] = [
     ["학여울",  "Hangnyeoul"],
     ["알약",    "allyak"]
 ];
 //Examples from "Palatalization"
-$examples[313] = [
+$romanizationExamples[313] = [
     ["해돋이",  "haedoji"],
     ["같이",    "gachi"],
     ["맞히다",  "machida"]
 ];
 //Examples from "where ㄱ, ㄷ, ㅂ, and ㅈ are adjacent to ㅎ"
-$examples[314] = [
+$romanizationExamples[314] = [
     ["좋고",    "joko"],
     ["놓다",    "nota"],
     ["잡혀",    "japyeo"],
@@ -45,7 +45,7 @@ $examples[314] = [
     ["집현전",  "Jiphyeonjeon"]
 ];
 //Examples from "Tense (or glottalized) sounds are not reflected in cases where morphemes are compounded"
-$examples[31] = [
+$romanizationExamples[31] = [
     ["압구정",  "Apgujeong"],
     ["낙동강",  "Nakdonggang"],
     ["죽변",    "Jukbyeon"],
@@ -56,7 +56,7 @@ $examples[31] = [
     ["울산",    "Ulsan"]
 ];
 //Examples from "When there is the possibility of confusion in pronunciation, a hyphen '-' may be used"
-$examples[32] = [
+$romanizationExamples[32] = [
     ["중앙",    "Jung-ang"],
     ["반구대",  "Ban-gudae"],
     ["세운",    "Se-un"],
@@ -64,19 +64,19 @@ $examples[32] = [
 ];
 //Examples from "The first letter is capitalized in proper names"
 //Note: no testable unless a proper names' dictionary is added to the code
-$examples[33] = [
+$romanizationExamples[33] = [
     ["부산",    "Busan"],
     ["세종",    "Sejong"]
 ];
 //Examples from "Personal names"
-$examples[34] = [
+$romanizationExamples[34] = [
     ['민용하',  'Min Yongha', true],
     ['송나리',  'Song Nari', true],
     ['한복남',  'Han Boknam', true],
     ['홍빛나',  'Hong Bitna', true],
 ];
 //Examples from "Administrative units"
-$examples[35] = [
+$romanizationExamples[35] = [
     ['충청북도', 'Chungcheongbuk-do', true],
     ['제주도', 'Jeju-do', true],
     ['의정부시', 'Uijeongbu-si', true],
@@ -94,7 +94,7 @@ $examples[35] = [
     ['순창읍', 'Sunchang', true]
 ];
 //Examples from "Names of geographic features"
-$examples[36] = [
+$romanizationExamples[36] = [
     ['남산', 'Namsan'],
     ['속리산', 'Songnisan'],
     ['금강', 'Geumgang'],
