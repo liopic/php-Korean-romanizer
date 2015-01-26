@@ -32,4 +32,17 @@ class SyllabeTest extends PHPUnit_Framework_TestCase
 
         return array_merge($kor, $non);
     }
+
+    /**
+    * Test for splitting Jamos and returning them
+    */
+    public function testSplittingJamos()
+    {
+        $s = new Syllabe("강");
+        $jamos = $s->getJamos();
+        $this->assertEquals("ㄱㅏㅇ", $jamos->__toString());
+        $s = new Syllabe("옮");
+        $jamos = $s->getJamos();
+        $this->assertEquals("ㅇㅗㄻ", $jamos->__toString());
+    }
 }

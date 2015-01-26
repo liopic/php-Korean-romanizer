@@ -100,6 +100,17 @@ class Syllabe extends UnicodeChar implements RomanizeInterface
         return true;
     }
 
+    public function getJamos()
+    {
+        $jamos = new JamoList();
+        if ($this->isKoreanFlag) {
+            $jamos->attach($this->iniConsonant);
+            $jamos->attach($this->vowel);
+            $jamos->attach($this->endConsonant);
+        }
+        return $jamos;
+    }
+
     public function romanize()
     {
         if (!$this->isKoreanFlag) {
