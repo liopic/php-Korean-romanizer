@@ -5,10 +5,6 @@ spl_autoload_register(
             return false;
         }
         $class = str_replace('\\', '/', $class);
-        if (file_exists('src/'.$class.'.php')) {
-            include_once 'src/'.$class.'.php';
-        } else {
-            include_once '../src/'.$class.'.php';
-        }
+        include_once 'src/'.$class.'.php';
     }
 );
