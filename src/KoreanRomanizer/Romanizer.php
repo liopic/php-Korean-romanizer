@@ -39,10 +39,15 @@ class Romanizer implements RomanizeInterface
             $strlen = mb_strlen($s);
         }
 
-        //Get the romanization of each syllabe
-        $rom = [];
+        //Get the jamos of each syllabe
+        $jamoList = new JamoList();
         foreach ($syllabes as $syllabe) {
-            $rom[] = $syllabe->romanize();
+            $jamoList->addAll($syllabe->getJamos());
+        }
+
+        $rom = [];
+        foreach($jamoList as $j){
+            $rom[] = $j->romanize();
         }
 
         return implode($rom);
