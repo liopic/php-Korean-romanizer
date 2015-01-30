@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/liopic/php-Korean-romanizer.svg?branch=master)](https://travis-ci.org/liopic/php-Korean-romanizer)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/192c62a4-ec9a-4a86-a625-0fac48a0e770/mini.png)](https://insight.sensiolabs.com/projects/192c62a4-ec9a-4a86-a625-0fac48a0e770)
+[![Code Climate](https://codeclimate.com/github/liopic/php-Korean-romanizer/badges/gpa.svg)](https://codeclimate.com/github/liopic/php-Korean-romanizer)
 [![Latest Stable Version](https://poser.pugx.org/liopic/korean-romanizer/v/stable.svg)](https://packagist.org/packages/liopic/korean-romanizer)
 [![Monthly Downloads](https://poser.pugx.org/liopic/korean-romanizer/d/monthly.png)](https://packagist.org/packages/liopic/korean-romanizer)
 [![License](https://poser.pugx.org/liopic/korean-romanizer/license.svg)](https://packagist.org/packages/liopic/korean-romanizer)
