@@ -42,7 +42,7 @@ $romanizationExamples[314] = [
     ["잡혀",    "japyeo"],
     ["낳지",    "nachi"],
     ["묵호",    "Mukho"],
-    ["집현전",  "Jiphyeonjeon"]
+    ["집현전",  "Jiphyeonjeon", true] //This case is imposible to test
 ];
 //Examples from "Tense (or glottalized) sounds are not reflected in cases where morphemes are compounded"
 $romanizationExamples[31] = [
