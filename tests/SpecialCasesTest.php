@@ -10,7 +10,7 @@ class SpecialCasesTest extends PHPUnit_Framework_TestCase
     public function testRomanizeSpecialCases($sIn, $sOut)
     {
         $s = new Romanizer($sIn);
-        $this->assertEquals(strtolower($sOut), $s->romanize());
+        $this->assertEquals($this->simplify($sOut), $this->simplify($s->romanize()));
     }
 
     public function examplesFromFiles()
@@ -28,5 +28,15 @@ class SpecialCasesTest extends PHPUnit_Framework_TestCase
             }
         }
         return $examples;
+    }
+
+    /**
+    * make $s lowercase and without '-' (as those are optionals)
+    * @param string $s
+    * @return $s
+    */
+    private function simplify($s)
+    {
+        return str_replace('-', '', strtolower($s));
     }
 }
