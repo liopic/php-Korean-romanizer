@@ -28,7 +28,7 @@ class RomanizerTest extends PHPUnit_Framework_TestCase
         //Mixed with non-Korean chars
         $mix = [
             ["신촌역 4번출구", "sinchonyeok 4beonchulgu"],
-            ["북한 1 - 한국 2", "bukhan 1 - hanguk 2"]
+            ["북한 1 - 한국 2", "bukhan 1 - han-guk 2"]
         ];
 
         return array_merge($basic, $mix);
