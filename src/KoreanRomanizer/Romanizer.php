@@ -38,18 +38,46 @@ class Romanizer implements RomanizeInterface
             $s = mb_substr($s, 1);
             $strlen = mb_strlen($s);
         }
+        $syllabes[] =new Syllabe(" "); //add a fake end, to mark last Korean word ending
 
-        //Get the jamos of each syllabe
+        //Get the jamos of each syllabe, grouping by Korean words
+        $specialRules = SpecialRuleFactory::build();
         $jamoList = new JamoList();
-        foreach ($syllabes as $syllabe) {
-            $jamoList->addAll($syllabe->getJamos());
-        }
-
         $rom = [];
-        foreach($jamoList as $j){
+        foreach ($syllabes as $syllabe) {
+            if($syllabe->isKorean()) {
+                $jamoList->addAll($syllabe->getJamos());
+            } else {
+                //first process stored Korean word
+                $rom[] = $this->romanizeWord($jamoList, $specialRules);
+                unset($jamoList);
+                $jamoList = new JamoList();
+                //and then process the non Korean char
+                $rom[] = $syllabe->romanize();
+            }
+        }
+        array_pop($rom); //remove the fake end
+        return implode($rom);
+    }
+
+    /**
+    * romanize a word, using its $jamos and applying $specialRules
+    * @return string
+    */
+    private function romanizeWord(JamoList $jamoList, SpecialRuleContainer $specialRules)
+    {
+        // Apply romanization, first checking for special rules that start with an EndConsonant
+        $rom = [];
+        foreach($jamoList as $k => $j){
+            if ($j instanceof EndConsonant) {
+                $rule = $specialRules->findRuleAt($jamoList, $k);
+                if ($rule) {
+                    $rom[] = $rule->applyAt($jamoList, $k);
+                    continue;
+                }
+            }
             $rom[] = $j->romanize();
         }
-
         return implode($rom);
     }
 }

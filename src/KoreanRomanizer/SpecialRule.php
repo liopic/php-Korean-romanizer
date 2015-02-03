@@ -29,6 +29,36 @@ class SpecialRule
         $this->romanization = $romanization;
     }
 
+    public function matchesAt(JamoList $jamoList, $key)
+    {
+        $copy = clone($jamoList);
+        while ($copy->key() != $key) {
+            $copy->next();
+        }
+        $this->jamos->rewind();
+        $size = min($this->jamos->count(), $copy->count());
+        while ($size--) {
+            if ($copy->current() != $this->jamos->current()) {
+                return false;
+            }
+            $copy->next();
+            $this->jamos->next();
+        }
+        return true;
+    }
+
+    public function applyAt(JamoList $jamoList, $key)
+    {
+        if (!$this->matchesAt($jamoList, $key)) {
+            return "";
+        }
+        $shift = $this->jamos->count()-1;
+        while ($shift--) {
+            $jamoList->next();
+        }
+        return $this->romanization;
+    }
+
     public function __toString()
     {
         return $this->jamos.'->'.$this->romanization;
