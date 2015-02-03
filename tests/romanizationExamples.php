@@ -8,11 +8,11 @@
 
 //Basic examples
 $romanizationExamples[2] = [
-    ["구 리",   "Guri"],
-    ["설 악",   "Seorak"],
-    ["칠 곡",   "Chilgok"],
-    ["임 실",   "Imsil"],
-    ["울 릉",   "Ulleung"],
+    ["구리",   "Guri"],
+    ["설악",   "Seorak"],
+    ["칠곡",   "Chilgok"],
+    ["임실",   "Imsil"],
+    ["울릉",   "Ulleung"],
     ["대관령",  "Daegwallyeong"]
 ];
 //Examples from "Assimilation of adjacent consonants"
