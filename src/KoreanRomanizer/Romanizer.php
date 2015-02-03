@@ -45,7 +45,7 @@ class Romanizer implements RomanizeInterface
         $jamoList = new JamoList();
         $rom = [];
         foreach ($syllabes as $syllabe) {
-            if($syllabe->isKorean()) {
+            if ($syllabe->isKorean()) {
                 $jamoList->addAll($syllabe->getJamos());
             } else {
                 //first process stored Korean word
@@ -68,7 +68,7 @@ class Romanizer implements RomanizeInterface
     {
         // Apply romanization, first checking for special rules that start with an EndConsonant
         $rom = [];
-        foreach($jamoList as $k => $j){
+        foreach ($jamoList as $k => $j) {
             if ($j instanceof EndConsonant) {
                 $rule = $specialRules->findRuleAt($jamoList, $k);
                 if ($rule) {

@@ -6,14 +6,14 @@ namespace KoreanRomanizer;
  */
 class SpecialRuleContainer extends \SplObjectStorage
 {
-    function attach($rule, $inf = null)
+    public function attach($rule, $inf = null)
     {
         if ($rule instanceof SpecialRule) {
             parent::attach($rule);
         }
     }
 
-    function detach($rule, $inf = null)
+    public function detach($rule, $inf = null)
     {
         if ($rule instanceof SpecialRule) {
             parent::detach($rule);
@@ -25,13 +25,13 @@ class SpecialRuleContainer extends \SplObjectStorage
     * @param JamoList $jamoList
     * @param int $key
     */
-    function findRuleAt(JamoList $jamoList, $key)
+    public function findRuleAt(JamoList $jamoList, $key)
     {
         $rule = null;
         $this->rewind();
         while ($this->valid()) {
             $current = $this->current();
-            if ($current->matchesAt($jamoList, $key)){
+            if ($current->matchesAt($jamoList, $key)) {
                 $rule = $current;
                 break;
             }
