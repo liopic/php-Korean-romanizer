@@ -4,6 +4,13 @@ use KoreanRomanizer\Syllabe;
 
 class SyllabeTest extends PHPUnit_Framework_TestCase
 {
+    public function testNonKorean()
+    {
+        $s = new Syllabe(" ");
+        $this->assertEquals(false, $s->isKorean());
+        $this->assertEquals(" ", $s->romanize());
+    }
+
     /**
     * @dataProvider examplesTestRomanize
     */
