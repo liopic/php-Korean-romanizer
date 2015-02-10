@@ -10,6 +10,8 @@ class JamoList extends \SplObjectStorage
     {
         if ($rule instanceof Jamo) {
             parent::attach($rule);
+        } else {
+            throw new InvalidArgumentException('Expected Jamo object!');
         }
     }
 
@@ -17,6 +19,8 @@ class JamoList extends \SplObjectStorage
     {
         if ($rule instanceof Jamo) {
             parent::detach($rule);
+        } else {
+            throw new InvalidArgumentException('Expected Jamo object!');
         }
     }
 

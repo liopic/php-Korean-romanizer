@@ -10,6 +10,8 @@ class Dictionary extends \SplObjectStorage
     {
         if ($entry instanceof DictionaryEntry) {
             parent::attach($entry);
+        } else {
+            throw new \KoreanRomanizer\InvalidArgumentException('Expected DictionaryEntry object!');
         }
     }
 
@@ -17,6 +19,8 @@ class Dictionary extends \SplObjectStorage
     {
         if ($entry instanceof DictionaryEntry) {
             parent::detach($entry);
+        } else {
+            throw new \KoreanRomanizer\InvalidArgumentException('Expected DictionaryEntry object!');
         }
     }
 

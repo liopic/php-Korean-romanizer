@@ -10,6 +10,8 @@ class SpecialRuleContainer extends \SplObjectStorage
     {
         if ($rule instanceof SpecialRule) {
             parent::attach($rule);
+        } else {
+            throw new InvalidArgumentException('Expected SpecialRule object!');
         }
     }
 
@@ -17,6 +19,8 @@ class SpecialRuleContainer extends \SplObjectStorage
     {
         if ($rule instanceof SpecialRule) {
             parent::detach($rule);
+        } else {
+            throw new InvalidArgumentException('Expected SpecialRule object!');
         }
     }
 
