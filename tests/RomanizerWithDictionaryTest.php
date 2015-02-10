@@ -14,7 +14,7 @@ class RomanizerWithDictionaryTest extends PHPUnit_Framework_TestCase
         $rom = new Romanizer($sIn);
         $dict = new Dictionary();
         $dict->attach(new DictionaryEntry("시청", "City Hall"));
-        $dict->attach(new DictionaryEntry('(.)대통령', 'President \\1', DictionaryEntry::REGEX));
+        //$dict->attach(new DictionaryEntry('(.)대통령', 'President \\1', DictionaryEntry::REGEX));
         $rom->setDictionary($dict);
         $this->assertEquals($sOut, $rom->romanize());
     }
@@ -22,8 +22,8 @@ class RomanizerWithDictionaryTest extends PHPUnit_Framework_TestCase
     public function examplesTestRomanize()
     {
         $tests = [
-            ["시청 4번출구", "City Hall 4beonchulgu"],
-            ["조대통령", "President jo"]
+            ["시청 4번출구", "City Hall 4beonchulgu"]
+        //    ["조대통령", "President jo"]
         ];
 
         return $tests;
