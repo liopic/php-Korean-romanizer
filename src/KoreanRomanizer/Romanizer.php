@@ -9,6 +9,11 @@ class Romanizer implements RomanizeInterface
     private $s;
 
     /**
+     * @var Dictionary dictionary to use before the romanization itself
+     */
+    private $dict;
+
+    /**
      * Create a word or sentence instance
      * @param string $s UTF-8 string with hangul to romanize
      * @throws \KoreanRomanizer\InvalidArgumentException
@@ -19,6 +24,12 @@ class Romanizer implements RomanizeInterface
             throw new InvalidArgumentException("The parameter of Romanizer must be a UTF-8 string.");
         }
         $this->s = $s;
+        $this->dict = null;
+    }
+
+    public function setDictionary(\KoreanRomanizer\Dictionary\Dictionary $dict)
+    {
+        $this->dict = $dict;
     }
 
     /**
@@ -27,11 +38,15 @@ class Romanizer implements RomanizeInterface
      */
     public function romanize()
     {
-        mb_internal_encoding("UTF-8");
+        $s = $this->s;
+        //If a Dictionary is set, use it firstly
+        if ($this->dict) {
+            $s = $this->dict->translate($s);
+        }
 
         //Extract utf8 chars one by one, creating a Syllabe object for each char
         $syllabes = [];
-        $s = $this->s;
+        mb_internal_encoding("UTF-8");
         $strlen = mb_strlen($s);
         while ($strlen) {
             $syllabes[] = new Syllabe(mb_substr($s, 0, 1));
