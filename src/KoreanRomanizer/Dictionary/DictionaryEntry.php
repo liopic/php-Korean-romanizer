@@ -49,6 +49,7 @@ class DictionaryEntry
     public function translate($s)
     {
         if ($this->regex === self::REGEX) {
+            mb_internal_encoding("UTF-8");
             return mb_ereg_replace($this->original, $this->translation, $s);
         } else {
             return str_replace($this->original, $this->translation, $s);
