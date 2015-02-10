@@ -23,8 +23,8 @@ class DictionaryTest extends PHPUnit_Framework_TestCase
 
     public function testRegexTranslation()
     {
-        $s ="오(1) 아이우";
-        $pat = "오\((.)\)";
+        $s ='오(1) 아이우';
+        $pat = '오\\((.)\\)';
         $translation = "oh[\\1]";
         $d = new DictionaryEntry($pat, $translation, DictionaryEntry::REGEX);
         $this->assertEquals('oh[1] 아이우', $d->translate($s));
