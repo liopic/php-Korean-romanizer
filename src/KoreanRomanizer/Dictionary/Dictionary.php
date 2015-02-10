@@ -28,8 +28,7 @@ class Dictionary extends \SplObjectStorage
     public function translate($s)
     {
         $this->rewind();
-        while ($this->valid())
-        {
+        while ($this->valid()) {
             $current = $this->current();
             $s = $current->translate($s);
             $this->next();
